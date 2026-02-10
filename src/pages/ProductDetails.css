@@ -1,0 +1,126 @@
+.details-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: var(--primary-light);
+}
+
+.details-card {
+    padding: var(--spacing-xl) * 1.5;
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--border);
+    gap: var(--spacing-lg);
+}
+
+.details-header>div:first-child {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.details-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.details-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.details-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.detail-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.section-content {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.detail-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.detail-value {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.detail-value.price {
+    color: var(--primary-light);
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .details-header {
+        flex-direction: column;
+    }
+
+    .details-actions {
+        width: 100%;
+    }
+
+    .details-actions .btn {
+        flex: 1;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+}

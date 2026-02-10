@@ -1,0 +1,105 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    gap: var(--spacing-lg);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: transform 0.2s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.brand-icon {
+    font-size: 1.5rem;
+}
+
+.brand-text {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex: 1;
+    margin-left: var(--spacing-xl);
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.user-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 0.5rem 1rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.user-icon {
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .navbar-content {
+        flex-wrap: wrap;
+    }
+
+    .navbar-menu {
+        order: 3;
+        width: 100%;
+        margin-left: 0;
+        margin-top: var(--spacing-sm);
+    }
+
+    .brand-text {
+        display: none;
+    }
+}
