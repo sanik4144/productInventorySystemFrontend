@@ -1,28 +1,28 @@
-import axios from 'axios';
+import axios from "axios";
 
-// Create axios instance with default config
+// Use Vite env var, fallback to localhost for local dev
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+
 const api = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: API_BASE_URL,
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
-  withCredentials: true, // Important for sending credentials
+  withCredentials: true,
 });
 
 // Request interceptor to add auth headers
 api.interceptors.request.use(
   (config) => {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
     if (user.username && user.password) {
-      // Create Basic Auth header
       const credentials = btoa(`${user.username}:${user.password}`);
       config.headers.Authorization = `Basic ${credentials}`;
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 // Response interceptor for error handling
@@ -30,9 +30,8 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Unauthorized - clear user data and redirect to login
-      localStorage.removeItem('user');
-      window.location.href = '/login';
+      localStorage.removeItem("user");
+      window.location.href = "/login";
     }
     return Promise.reject(error);
   }
