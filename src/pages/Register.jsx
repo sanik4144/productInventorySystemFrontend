@@ -9,7 +9,7 @@ const Register = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        roleName: 'ROLE_VIEWER',
+        roleName: 'ROLE_USER',
     });
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
@@ -144,7 +144,7 @@ const Register = () => {
                                 onChange={handleChange}
                                 disabled={loading}
                             >
-                                <option value="ROLE_VIEWER">Viewer (View Only)</option>
+                                <option value="ROLE_USER">User (View Only)</option>
                                 <option value="ROLE_ADMIN">Admin (Full Access)</option>
                             </select>
                         </div>
