@@ -1,8 +1,13 @@
 import axios from "axios";
 
-// Use Vite env var, fallback to localhost for local dev
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+// Normalize API base URL from env to avoid accidental relative-path requests in production
+const rawBaseUrl = (import.meta.env.VITE_API_BASE_URL || "").trim();
+const normalizedBaseUrl = rawBaseUrl
+  ? /^https?:\/\//i.test(rawBaseUrl)
+    ? rawBaseUrl
+    : `https://${rawBaseUrl}`
+  : "";
+const API_BASE_URL = normalizedBaseUrl || "http://localhost:8080";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
